@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<!-- Create groups for a set of keys. -->
+	<groups>
+		<group name="SBAC">
+			<connections>
+				<connection code="TDS_Dict_Collegiate" key="2cdcdd90-9e02-426d-ae02-ef2cbbef0b02" 
+							url="http://www.dictionaryapi.com/api/v1/references/collegiate/xml/" />
+				<connection code="TDS_Dict_Learners" key="air-lrn6-9f6c-46b5-a3e6-29ebc32458b7"
+							url="http://www.dictionaryapi.com/api/v1/references/learners/xml/" />
+				<connection code="TDS_Dict_SD2" key="7af32894-aae0-4608-8060-aa75fbb71ba5"
+							url="http://www.dictionaryapi.com/api/v1/references/sd2/xml/" />
+				<connection code="TDS_Dict_SD3" key="air-sd36-9f6c-46b5-a3e6-29ebc32458b7"
+							url="http://www.dictionaryapi.com/api/v1/references/sd3/xml/" />
+				<connection code="TDS_Dict_SD4" key="air-sd46-9f6c-46b5-a3e6-29ebc32458b7"
+							url="http://www.dictionaryapi.com/api/v1/references/sd4/xml/" />
+				<connection code="thesaurus" key="air-ithes9f6c-46b5-a3e6-29ebc32458b7"
+							url="http://www.dictionaryapi.com/api/v1/references/ithesaurus/xml/" />
+				<connection code="spanish" key="air-sed6-9f6c-46b5-a3e6-29ebc32458b7"
+							url="http://www.dictionaryapi.com/api/v1/references/spanish/xml/" />
+			</connections>
+		</group>
+	</groups>
+	
+</dictionary>

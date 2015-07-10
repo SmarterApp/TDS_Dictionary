@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://java.sun.com/jsf/passthrough">
+
+<h:head>
+	<title>Dictionary</title>
+	<link rel="stylesheet" href="Styles/dictionary2.css" />
+	<script src="Scripts/Libraries/jQuery/jquery-1.10.2.min.js"></script>
+	<script src="Scripts/Libraries/soundmanager2/script/soundmanager2-nodebug-jsmin.js"></script>
+
+	<script type="text/javascript">
+		var selected_dict = '#{defaultBacking.getDictionaryCode()}';
+		var query_accoms = '#{defaultBacking.getAccomsClasses()}';
+		var audioSetting = '#{defaultBacking.getAudioSetting()}';
+		var group = '#{defaultBacking.getGroup()}';
+	</script>
+
+	<script type="text/javascript" src="Scripts/SoundLinks.js"></script>
+	<script type="text/javascript" src="Scripts/Dictionary.js"></script>
+	<script type="text/javascript" src="Scripts/Accomodations.js"></script>
+</h:head>
+
+<h:body>
+	<div id="tool-dictionary">
+		<div class="dictionary-window-title">
+			<span>Dictionary/Thesaurus</span> <a class="container-close" role="button" tabindex="0">Close</a>
+		</div>
+
+		<div id="dictionary-loading"></div>
+
+		<div id="dictionary-error">
+			<div class="error-message">
+				<p>
+					There was an error with <span id="requestTarget">your request</span>. Please try again.
+				</p>
+				<div class="button-area">
+					<a href="#" class="button" role="button">Ok</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="dictionary-search">
+			<div class="dictionary-search-content">
+				<form id="dictionary-search-form">
+					<fieldset>
+						<div class="search-input-wrapper">
+							<img src="images/merriam-webster-logo.png" alt="Merriam-Webster Logo" /> <label id="dictionary-search-label" for="dictionary-search-box">Input Query in next text box</label> <input type="text"
+								name="dictionary-search-box" id="dictionary-search-box" />
+							<div class="search-buttons-wrapper">
+								<a href="#" class="button" aria-label="Search Dictionary" id="dictionary_btn">Dictionary</a> <a href="#" class="button" aria-label="Search Thesaurus" id="thesaurus_btn">Thesaurus</a> <a
+									href="#" class="button" aria-label="Search Spanish translation" id="spanish_btn">Spanish</a>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+
+		<div id="dictionary-results">
+			<div id="entry_select_div">
+				<div class="results-content">
+					<div class="dictionary-message">
+						Showing <strong>Dictionary</strong> search results for
+					</div>
+					<div class="thesaurus-message">
+						Showing <strong>Thesaurus</strong> search results for
+					</div>
+					<h1 id="select_repeat"></h1>
+
+					<div class="results-pages">
+						<div class="secret-label">"Number of Search Results"</div>
+						<span id="found_count" class="page-text"></span> <span class="page-text"> ENTRIES FOUND:</span> <span class="pages-controls"> <a class="prev disabled" href="#"
+							aria-label="Previous Search Results Page">previous</a> <a class="next" href="#" aria-label="Next Search Results Page">next</a>
+						</span>
+					</div>
+
+					<div class="results-list">
+						<ol></ol>
+					</div>
+				</div>
+			</div>
+
+			<div id="selected_entry_div">
+				<div class="definitions-wrapper">
+					<div id="mwEntryData"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="dictionary-disclaimer">
+			<span class="dictionary-disclaimer-content">Data provided by Merriam-Webster, Inc.</span>
+		</div>
+	</div>
+</h:body>
+</html>

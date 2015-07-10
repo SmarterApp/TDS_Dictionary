@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<annotation-driven />
+	<context:annotation-config />
+
+	<context:property-placeholder ignore-unresolvable="true" order="10" local-override="true" />
+
+	<context:property-placeholder location="classpath:settings.xml" ignore-unresolvable="true" order="900" local-override="true" />
+	
+	<beans:bean id="SBACDictionaryGroup" class="AIR.Dictionary.DictionaryGroup" >
+		<beans:property name="groupName" value="${tds.dictionary.groupName:AIR}"/>
+		<beans:property name="defaultGroup" value="true"/>
+		<beans:property name="connections" >
+			<util:list>
+				<beans:bean class="AIR.Dictionary.DictionaryGroup.Connection">
+					<beans:property name="code" value="TDS_Dict_Collegiate"/>
+					<beans:property name="key" value="${tds.dictionary.key.TDS_Dict_Collegiate:}"/>
+					<beans:property name="url" value="${tds.dictionary.url.TDS_Dict_Collegiate:}"/>
+				</beans:bean>
+				<beans:bean class="AIR.Dictionary.DictionaryGroup.Connection">
+					<beans:property name="code" value="TDS_Dict_Learners"/>
+					<beans:property name="key" value="${tds.dictionary.key.TDS_Dict_Learners:}"/>
+					<beans:property name="url" value="${tds.dictionary.url.TDS_Dict_Learners:}"/>
+				</beans:bean>
+				<beans:bean class="AIR.Dictionary.DictionaryGroup.Connection">
+					<beans:property name="code" value="TDS_Dict_SD2"/>
+					<beans:property name="key" value="${tds.dictionary.key.TDS_Dict_SD2:}"/>
+					<beans:property name="url" value="${tds.dictionary.url.TDS_Dict_SD2:}"/>
+				</beans:bean>
+				<beans:bean class="AIR.Dictionary.DictionaryGroup.Connection">
+					<beans:property name="code" value="TDS_Dict_SD3"/>
+					<beans:property name="key" value="${tds.dictionary.key.TDS_Dict_SD3:}"/>
+					<beans:property name="url" value="${tds.dictionary.url.TDS_Dict_SD3:}"/>
+				</beans:bean>
+				<beans:bean class="AIR.Dictionary.DictionaryGroup.Connection">
+					<beans:property name="code" value="TDS_Dict_SD4"/>
+					<beans:property name="key" value="${tds.dictionary.key.TDS_Dict_SD4:}"/>
+					<beans:property name="url" value="${tds.dictionary.url.TDS_Dict_SD4:}"/>
+				</beans:bean>
+				<beans:bean class="AIR.Dictionary.DictionaryGroup.Connection">
+					<beans:property name="code" value="thesaurus"/>
+					<beans:property name="key" value="${tds.dictionary.key.thesaurus:}"/>
+					<beans:property name="url" value="${tds.dictionary.url.thesaurus:}"/>
+				</beans:bean>
+				<beans:bean class="AIR.Dictionary.DictionaryGroup.Connection">
+					<beans:property name="code" value="spanish"/>
+					<beans:property name="key" value="${tds.dictionary.key.spanish:}"/>
+					<beans:property name="url" value="${tds.dictionary.url.spanish:}"/>
+				</beans:bean>
+			</util:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean id="configParser" class="AIR.Dictionary.DictionaryConfigParser">
+		<beans:constructor-arg>
+			<util:list value-type="AIR.Dictionary.DictionaryGroup">
+				<beans:ref bean="SBACDictionaryGroup"/>
+			</util:list>
+		</beans:constructor-arg>
+	</beans:bean>
+	
+	<context:component-scan base-package="AIR.Dictionary" />
+	<context:component-scan base-package="AIR.Dictionary.Web" />
+	
+	
+</beans:beans>

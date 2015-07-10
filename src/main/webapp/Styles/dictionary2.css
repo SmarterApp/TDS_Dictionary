@@ -1,0 +1,850 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+/*general reset statement.  This will be cut when actually plugged into TDS*/
+body,h1,h2,h3,h4,h5,p,ol,ul,li,dl{
+	margin: 0;
+	padding: 0;
+}
+
+/* Error box */
+#dictionary-error{
+	display:none;
+	font-weight: bold;
+	color: #900;
+	background: url("RedX.png") no-repeat 2px center #ccc;
+	padding-left: 35px;
+	min-height: 27px;
+	border: 2px solid #ccc;
+	border-radius: 6px;
+	box-shadow: 2px 3px 3px 1px #000;
+	width: 50%;
+    position: absolute;
+    left: 25%;
+    top: 40%;
+}
+#dictionary-error div.error-message{
+	background-color: #fff;
+	vertical-align: middle;
+	padding: 0.2em 1em;
+}
+
+.error #dictionary-error{
+	display: block;
+}
+.error #dictionary-error .button-area
+{
+    border-top: #ccc 1px solid;
+    display: block;
+    position: relative;
+    padding: 0.5em 0;
+}
+.error #dictionary-error p
+{
+    padding-bottom: 0.5em;
+}
+
+/* end Error box */
+/* loading box*/
+#dictionary-loading{
+	/*display:none;
+	background: url("saved.gif") no-repeat center;
+	height: 100%;*/
+    background: url("saved.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+    border: 3px solid #CCCCCC;
+    border-radius: 10px;
+    box-shadow: 5px 5px 6px 1px #999;
+    display: none;
+    height: 20px;
+    left: 50%;
+    margin-left: -20px;
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    width: 20px;
+}
+
+.loading #dictionary-loading{
+	display: block;
+}
+/*end loading box*/
+
+/*Hide others during error or load*/
+.error #dictionary-search, #tool-dictionary.error #dictionary-results, .error #dictionary-disclaimer,
+/*.loading #dictionary-search,*/ #tool-dictionary.loading  #dictionary-results, .loading #dictionary-disclaimer
+{
+	/*display: none;*/
+    visibility: hidden;
+}
+
+
+/*Iframe title area*/
+#tool-dictionary .dictionary-window-title
+{
+    background-color: #F5F7F7;
+    background-image: none;
+    border-bottom: 1px solid #CCCCCC;
+    color: #666666;
+    font-size: 1.4em;
+    line-height: 1.6em;
+    padding: 0 10px;
+    display: none;/*This needs to be hidden now?*/
+}
+#tool-dictionary .container-close {
+    background: url("../images/sprites_mobile_0.png") no-repeat scroll center -2730px rgba(0, 0, 0, 0);
+    color: #000000;
+    display: block;
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-decoration: none;
+    text-indent: -9999px;
+    width: 25px;
+}
+#tool-dictionary .container-close:hover {
+    background-position: center -2831px;
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+/*end Iframe title area*/
+
+#tool-dictionary sup{
+	font-size: 0.7em;
+	vertical-align:super;
+}
+#tool-dictionary{
+	font-family: Arial, Helvetica, sans-serif;
+	overflow:hidden; 
+	/*border: 1px dashed #ccc;*/
+    position: relative;
+    display: block;
+}
+#tool-dictionary .definitions{
+	font-size: 0.9em;
+   /* min-height: 268px;*/
+    overflow: hidden;
+}
+
+#tool-dictionary .li_for_dr .definitions {
+    height: auto;
+}
+
+#tool-dictionary #def-header{
+	font-size: 1.1em;
+    display: block;
+}
+
+#tool-dictionary .dictionary-search-content, #tool-dictionary .results-content, #tool-dictionary .definitions-wrapper{
+	padding: 0.2em 0.5em;
+}
+
+#tool-dictionary #dictionary-search{
+	border-bottom: 1px solid #ccc;
+}
+#tool-dictionary fieldset{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+#tool-dictionary .search-input-wrapper{
+	display:inline-block;
+	/*min-height: 61px; Hide because we got rid of the label*/
+	vertical-align:middle;
+}
+#tool-dictionary .search-input-wrapper img{
+	vertical-align: middle;
+    pointer-events: none;
+}
+#tool-dictionary .search-input-wrapper input{
+	font-size: 1.2em;
+	border-radius: 4px;
+	border: 1px solid #999;
+	box-shadow: 1px 1px 3px 0 #999 inset;
+	padding: 0.2em;
+	vertical-align: middle;
+}
+#dictionary-search-form img{
+	vertical-align: middle;
+}
+#dictionary-search-form label{
+	display: inline-block; 
+	padding-bottom: 0.2em;
+}
+
+
+#tool-dictionary #dictionary-results{
+	overflow: auto;
+	display: block;
+}
+#tool-dictionary #dictionary-results h1{
+	font-family: georgia,arial,verdana,sans-serif;
+	font-weight: normal;
+	font-size: 2em;
+	margin: 0 0 0.5em 0;
+}
+#tool-dictionary .page-text{
+	font-size: 0.8em;
+	color: #999;
+}
+#tool-dictionary .results-pages{
+	clear:both;
+}
+#tool-dictionary .results-list{
+	height: 4.4em;
+	overflow: auto;
+	width: 99%;
+	border: 1px solid #ccc;
+	padding: 0.2em;
+}
+#tool-dictionary .results-list li{
+	line-height: 1.2em;
+}
+#tool-dictionary .results-list li a{
+	text-decoration: none;
+    color: rgb(16, 0, 255);
+    cursor: pointer;
+}
+#tool-dictionary .pages-controls{
+	float: right;
+    display: none; /*we don't need this control for now*/
+}
+#tool-dictionary .pages-controls a{
+	display: inline-block;
+	height: 0;
+	width: 0;
+	padding: 17px 17px 0 0;
+	background: url("pagination.jpg") no-repeat;
+	overflow: hidden;
+}
+#tool-dictionary .pages-controls a.prev{
+	background-position: 0 0;	
+}
+#tool-dictionary .pages-controls a.prev.disabled{
+	background-position: 0 -17px;	
+}
+#tool-dictionary .pages-controls a.next{
+	background-position: -17px 0;	
+}
+#tool-dictionary .pages-controls a.next.disabled{
+	background-position: -17px -17px;	
+}
+#tool-dictionary #mwEntryData{
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	min-height: 5em;
+	margin-top: 1em;
+}
+#tool-dictionary #mwEntryData div.headword, #tool-dictionary #mwEntryData div.definitions , #tool-dictionary #mwEntryData div.definition-block, #tool-dictionary #mwEntryData div.ld_on_collegiate, #tool-dictionary #mwEntryData .example-sentences .sentence-block, #tool-dictionary #mwEntryData div.definitions  .synonyms-reference .content, #tool-dictionary #mwEntryData div.sense-block-one{
+	padding: 0.5em;
+}
+#tool-dictionary .headword{
+	background: #E8ECF5;
+	margin-bottom: 1.0em;
+}
+#tool-dictionary .headword.first{
+	border-radius: 10px 10px 0 0;
+}
+#tool-dictionary .headword-list{
+	list-style-type: none;
+}
+#tool-dictionary .headword-list li{
+	padding: 0.5em 0.5em 0.5em 1em;
+}
+#tool-dictionary .headword span, #tool-dictionary .headword a
+{
+    margin: 0 0.2em;
+}
+
+#tool-dictionary .definitions-wrapper h2{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 1.5em;
+	font-weight: normal;
+	display: inline-block;
+}
+#tool-dictionary div.definitions  h2{
+	font-size: 1em;
+	font-weight: bold;
+	color: #C3857A;
+}
+#tool-dictionary div.definitions  h2 span{
+	background: transparent; 
+	padding-right: 1em;
+}
+#tool-dictionary div.definitions  h2 em{
+	text-decoration: none;
+	text-transform: uppercase;
+}
+/*elements with gray text color*/
+#tool-dictionary .main-fl, #tool-dictionary .pr, #tool-dictionary .lb{
+	color: #999;
+}
+/*elements with bold*/
+#tool-dictionary strong, #tool-dictionary .main-fl{
+	font-weight:bold;
+}
+/*elements that are italics*/
+#tool-dictionary em, #tool-dictionary .pr, #tool-dictionary .ssl{
+	font-style: italic;
+}
+
+/*Definition blocks*/
+#tool-dictionary .definition-block, 
+#tool-dictionary .sense-block-one{
+	clear: both;
+	/*font-size: 0.9em;*/
+}
+#tool-dictionary .snum{
+	float: left;
+}
+#tool-dictionary .scnt{
+	margin-left: 1em;
+}
+#tool-dictionary ol.scnt{
+	list-style-type:none;
+}
+#tool-dictionary .dr{
+	margin-left: 1em;
+}
+#tool-dictionary ul.dr{
+	list-style-type: none;
+}
+#tool-dictionary .definitions ol, #tool-dictionary .definitions  ul{
+	margin-left: 2em;
+    list-style-type: none;
+}
+#tool-dictionary .definitions  ol li, #tool-dictionary .definitions  ul li{
+	/*font-size: 0.9em;*/
+	margin-bottom: 0.4em;
+}
+#tool-dictionary .definition-block p, #tool-dictionary .ld_on_collegiate p, #tool-dictionary .sense-block-one p{
+	padding: 0.2em 0;
+}
+#tool-dictionary .example-sentences ol{
+	list-style: disc;
+}
+#tool-dictionary #mwEntryData .etymology .content{
+	padding: 0.5em 0.5em 0.5em 1.2em;
+	/*font-size: 0.9em;*/
+}
+#tool-dictionary #mwEntryData .synonyms-reference .content{
+	color: #7B7B7B;
+	/*font-size: 0.9em;*/
+}
+#tool-dictionary #mwEntryData .synonyms-reference .content dl{
+	padding: 0.5em 0;
+}
+#tool-dictionary #mwEntryData .synonyms-reference .content dl dt{
+	padding: 0.5em 0;
+}
+#tool-dictionary #mwEntryData .synonyms-reference .content dl dt dd{
+	padding: 0.5em 0 0.5em 1em;
+}
+#tool-dictionary #mwEntryData .inf-forms{
+	padding: 0.5em;	
+}
+#tool-dictionary #mwEntryData .inf-forms span{
+	padding: 0 0.5em 0 0.5em;
+}
+#tool-dictionary #mwEntryData .inf-forms span.in-more{
+	border-right: 1px solid #ccc;
+}
+#tool-dictionary #mwEntryData .vt{
+	color: #7a7a7a;
+	font-style: italic;
+	padding: 0.3em 0;
+}
+
+#tool-dictionary .button, 
+#tool-dictionary a.button, 
+#tool-dictionary a.button:visited
+{
+	border: 1px solid #00356f;
+	color: #000;
+	border-radius: 4px;
+	background: #fff;
+	padding: 0.4em;
+	margin: 0 0.1em;
+	text-decoration: none;
+    display: inline-block;
+}
+#tool-dictionary .button:hover, #tool-dictionary a.button:hover{
+	color: #fff;
+	background: #00356f;
+}
+
+#tool-dictionary #dictionary-disclaimer{
+	border-top: 1px solid #ccc;
+	font-size: 0.8em;
+	color: #666;
+}
+#tool-dictionary .dictionary-disclaimer-content{
+	padding: 0.5em;
+    display: block;
+}
+
+/*For having labels only assistive technology will read*/
+.secret-label{
+	position: absolute;
+	display: inline-block;
+	left: -100%;
+}
+
+/*audio button*/
+#tool-dictionary a.au
+{
+    background: url(../images/audio-pron-hw.gif) no-repeat transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 18px 18px 0 0;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    vertical-align: middle;
+}
+/*end audio button*/
+
+
+/*Thesaurus*/
+#tool-dictionary .definitions.thesaurus ol.scnt{
+	list-style-type: decimal;
+}
+#tool-dictionary .thesaurus .vi
+{
+    padding: 0 1em;
+}
+#tool-dictionary .thesaurus .vi:before{
+	content: '<';
+}
+#tool-dictionary .thesaurus .vi:after{
+	content: '>';
+}
+#tool-dictionary .thesaurus-definition, #tool-dictionary .thesaurus-synonyms, #tool-dictionary .thesaurus-related-words, #tool-dictionary .thesaurus-near-antonyms, #tool-dictionary .thesaurus-antonyms{
+	line-height: 1.3em;
+	margin-bottom: 0.4em;
+}
+#tool-dictionary .thesaurus .ssens{
+	margin-bottom: 0.8em;
+}
+
+/* Structure 2.0 */
+#tool-dictionary .definitions ol
+{
+    margin-left: 0;
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt
+{
+    margin-left: 1em;
+    list-style-type: none;
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt li.ssens{
+    line-height: 1.4em;
+    margin: 0.5em 0 0.5em 0em;
+    position: relative;
+    overflow: hidden;
+}
+
+#tool-dictionary .definitions ol li.definition-block ol.scnt .sn
+{
+     font-weight: bold;
+     min-width: 1em;
+     width: auto;    
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt .sense-content{
+
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt li.ssens.topsense .sn{
+
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt li.ssens.topsense .sense-content{
+    padding-left: 0.5em;
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt li.ssens.mixsense .sn{
+    word-spacing: 0.5em;
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt li.ssens.mixsense .sense-content{
+    padding-left: 0.5em;
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt li.ssens.subsense .sn{
+    padding-left: 1.3em;
+}
+#tool-dictionary .definitions ol li.definition-block ol.scnt li.ssens.subsense .sense-content{
+    padding-left: 0.5em;
+}
+
+
+
+/* Display/Hide Controls */
+
+/* The following elements are to be hidden unless classes turn them on*/
+#tool-dictionary a.au, #tool-dictionary #thesaurus_btn, #tool-dictionary .etymology, #tool-dictionary .pr, #tool-dictionary .vi, #tool-dictionary .ssl, #tool-dictionary .lb{
+    display: none;
+}
+
+/*turns on sound links*/
+.TDS_DO_SL #tool-dictionary a.au, .TDS_DO_ALL #tool-dictionary a.au
+{
+    display: inline-block;
+}
+/*turns on thesaurus button*/
+.TDS_TH_TA #tool-dictionary #thesaurus_btn
+{
+    display: inline-block;
+}
+/*turns on word origin*/
+.TDS_DO_WO #tool-dictionary .etymology, .TDS_DO_ALL #tool-dictionary .etymology
+{
+    display: block;
+}
+/*turns on pronunication */
+.TDS_DO_PR #tool-dictionary .pr, .TDS_DO_ALL #tool-dictionary .pr
+{
+    display: inline-block;
+}
+/*turns on examples*/
+.TDS_DO_VI #tool-dictionary .vi, .TDS_DO_ALL #tool-dictionary .vi
+{
+    display: inline;
+}
+/*turns on sense subject and status label*/
+.TDS_DO_SSL #tool-dictionary .ssl, .TDS_DO_ALL #tool-dictionary .ssl
+{
+    display: inline-block;
+}
+/*turns on usage label*/
+.TDS_DO_LB #tool-dictionary .lb, .TDS_DO_ALL #tool-dictionary .lb
+{
+    display: inline-block;
+}
+
+/* Tool Mode indicator*/
+#tool-dictionary .dictionary-message, #tool-dictionary .thesaurus-message
+{
+    display: none;
+    color: #666666;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+}
+#tool-dictionary.dictionary .dictionary-message
+{
+    display:block;
+}
+#tool-dictionary.thesaurus .thesaurus-message
+{
+    display:block;
+}
+
+/*make text unselectable*/
+body *
+{
+    user-select: none;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+}
+input#dictionary-search-box
+{
+    user-select: text !important;
+    -moz-user-select: text !important;
+    -webkit-user-select: text !important;
+    -ms-user-select: text !important;
+}
+label#dictionary-search-label
+{
+    overflow:hidden;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+/* Suggestions CSS */
+#tool-dictionary .suggestions
+{
+    display: block;
+    padding: 1em;
+    position: relative;
+    font-size: 1em;
+    line-height: 1.1em;
+}
+    #tool-dictionary .suggestions p
+    {
+        margin-bottom: 0.5em;
+    }
+#tool-dictionary .suggestions ul
+{
+   margin-left: 1.2em;
+}
+    #tool-dictionary .suggestions ul li
+    {
+        font-size: 0.9em;
+        line-height: 1.1em;
+        padding-bottom: 0.2em;
+    }
+
+/* Zooming Support */
+.TDS_PS_L0 #tool-dictionary
+{
+    font-size: 1em;
+}
+.TDS_PS_L1 #tool-dictionary
+{
+    font-size: 1.4em;
+}
+.TDS_PS_L2 #tool-dictionary
+{
+    font-size: 1.6em;
+}
+.TDS_PS_L3 #tool-dictionary
+{
+    font-size: 1.8em;
+}
+.TDS_PS_L4 #tool-dictionary
+{
+    font-size: 2em;
+}
+#tool-dictionary #dictionary-search-form img
+{
+    height: 57px;
+    width: 55px;
+    /*This is to prevent zooming of the logo since it looks terrible blown up*/
+}
+
+/*Fix for Bug 121253 - Dictionary Accomodations */
+.TDS_CCYellow #tool-dictionary,
+.TDS_CCYellow #tool-dictionary input,
+.TDS_CCYellow #tool-dictionary .button,
+.TDS_CCYellow #tool-dictionary a.button
+{
+    background: #FFFFCE;
+}
+.TDS_CCYellow2 #tool-dictionary,
+.TDS_CCYellow2 #tool-dictionary input,
+.TDS_CCYellow2 #tool-dictionary .button,
+.TDS_CCYellow2 #tool-dictionary a.button
+{
+    background: #fcfce2;
+}
+
+.TDS_CCBlue #tool-dictionary,
+.TDS_CCBlue #tool-dictionary input,
+.TDS_CCBlue #tool-dictionary .button,
+.TDS_CCBlue #tool-dictionary a.button
+{
+    background: #99FFFF;
+}
+
+.TDS_CCBlue2 #tool-dictionary,
+.TDS_CCBlue2 #tool-dictionary input,
+.TDS_CCBlue2 #tool-dictionary .button,
+.TDS_CCBlue2 #tool-dictionary a.button
+{
+    background: #cfffff;
+}
+
+.TDS_CCMagenta #tool-dictionary,
+.TDS_CCMagenta #tool-dictionary input,
+.TDS_CCMagenta #tool-dictionary .button,
+.TDS_CCMagenta #tool-dictionary a.button
+{
+    background: #ffd0ff;
+}
+.TDS_CCMagenta2 #tool-dictionary,
+.TDS_CCMagenta2 #tool-dictionary input,
+.TDS_CCMagenta2 #tool-dictionary .button,
+.TDS_CCMagenta2 #tool-dictionary a.button
+{
+    background: #fde3fd;
+}
+
+.TDS_CCGray #tool-dictionary,
+.TDS_CCGray #tool-dictionary input,
+.TDS_CCGray #tool-dictionary .button,
+.TDS_CCGray #tool-dictionary a.button
+{
+    background: #cecfce;
+}
+.TDS_CCGray #tool-dictionary .results-list,
+.TDS_CCGray #tool-dictionary #mwEntryData,
+.TDS_CCGray #tool-dictionary #dictionary-search,
+.TDS_CCGray #tool-dictionary #dictionary-disclaimer
+
+{
+    border-color: #333;
+}
+
+.TDS_CCGray2 #tool-dictionary,
+.TDS_CCGray2 #tool-dictionary input,
+.TDS_CCGray2 #tool-dictionary .button,
+.TDS_CCGray2 #tool-dictionary a.button
+{
+    background: #e5e5e5;
+}
+.TDS_CCMedGrayLtGray #tool-dictionary,
+.TDS_CCMedGrayLtGray #tool-dictionary input,
+.TDS_CCMedGrayLtGray #tool-dictionary .button,
+.TDS_CCMedGrayLtGray #tool-dictionary a.button
+{
+   background-color: #e5e5e5;
+	color: #666;
+}
+
+.TDS_CCGreen #tool-dictionary,
+.TDS_CCGreen #tool-dictionary input,
+.TDS_CCGreen #tool-dictionary .button,
+.TDS_CCGreen #tool-dictionary a.button
+{
+   background-color: #cff799;
+}
+
+.TDS_CCGreen2 #tool-dictionary,
+.TDS_CCGreen2 #tool-dictionary input,
+.TDS_CCGreen2 #tool-dictionary .button,
+.TDS_CCGreen2 #tool-dictionary a.button
+{
+   background-color: #e0f6c1;
+}
+
+.TDS_CCYellowB #tool-dictionary,
+.TDS_CCYellowB #tool-dictionary input,
+.TDS_CCYellowB #tool-dictionary .button,
+.TDS_CCYellowB #tool-dictionary a.button,
+.TDS_CCYellowB #tool-dictionary .definitions a,
+.TDS_CCYellowB #tool-dictionary .results-list a
+{
+    background-color: #003399;
+    color: #FFCC00;
+}
+.TDS_CCYellowB #tool-dictionary .button,
+.TDS_CCYellowB #tool-dictionary a.button{
+    border-color: #ffcc00;    
+}
+.TDS_CCWhiteN #tool-dictionary,
+.TDS_CCWhiteN #tool-dictionary input,
+.TDS_CCWhiteN #tool-dictionary .button,
+.TDS_CCWhiteN #tool-dictionary a.button,
+.TDS_CCWhiteN #tool-dictionary .definitions a,
+.TDS_CCWhiteN #tool-dictionary .results-list a
+{
+    background-color: #003366;
+    color: #FFFFFF;
+}
+.TDS_CCWhiteN #tool-dictionary .button,
+.TDS_CCWhiteN #tool-dictionary a.button{
+    border-color: #fff;
+}
+
+.TDS_CCInvert #tool-dictionary,
+.TDS_CCInvert #tool-dictionary input,
+.TDS_CCInvert #tool-dictionary .button, 
+.TDS_CCInvert #tool-dictionary a.button, 
+.TDS_CCInvert #tool-dictionary a.button:visited
+{
+    background-color: #000;
+    color: #fff;
+}
+.TDS_CCInvert #tool-dictionary a.button:hover,
+.TDS_CCYellow #tool-dictionary a.button:hover,
+.TDS_CCYellow2 #tool-dictionary a.button:hover,
+.TDS_CCBlue #tool-dictionary a.button:hover,
+.TDS_CCBlue2 #tool-dictionary a.button:hover,
+.TDS_CCGray #tool-dictionary a.button:hover,
+.TDS_CCGray2 #tool-dictionary a.button:hover,
+.TDS_CCGreen #tool-dictionary a.button:hover,
+.TDS_CCGreen2 #tool-dictionary a.button:hover,
+.TDS_CCMagenta #tool-dictionary a.button:hover,
+.TDS_CCMagenta2 #tool-dictionary a.button:hover
+{
+    background-color: #00356F;
+    color: #fff;    
+}
+.TDS_CCYellowB #tool-dictionary a.button:hover
+{
+    border-color: #FFCC00;
+    color: #003399;
+    background-color: #ffcc00;
+}
+.TDS_CCWhiteN #tool-dictionary a.button:hover
+{
+    border-color: #fff;
+    color: #003399;
+    background-color: #fff;
+}
+.TDS_CCMedGrayLtGray #tool-dictionary a.button:hover
+{
+    border-color: #666;
+    color: #e5e5e5;
+	background: #666;
+}
+
+.TDS_CCInvert #tool-dictionary .headword{
+	background-color: #323232;
+}
+.TDS_CCWhiteN #tool-dictionary .headword,
+.TDS_CCYellowB #tool-dictionary .headword{
+	background-color: #000033;
+}
+
+.TDS_CCWhiteN #tool-dictionary .dictionary-message,
+.TDS_CCYellowB #tool-dictionary .dictionary-message
+{
+    color: #ccc;
+}
+/* end bugfix*/
+
+/* Bugfix 122293 */
+
+#tool-dictionary .search-buttons-wrapper
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+.TDS_PS_L1 #tool-dictionary .search-buttons-wrapper,
+.TDS_PS_L2 #tool-dictionary .search-buttons-wrapper,
+.TDS_PS_L3 #tool-dictionary .search-buttons-wrapper,
+.TDS_PS_L4 #tool-dictionary .search-buttons-wrapper
+{
+    margin: 0.5em 0;
+}
+
+#tool-dictionary .search-input-wrapper input,
+.TDS_PS_L0 #tool-dictionary .search-input-wrapper input
+{
+    width: 11em;
+}
+.TDS_PS_L1 #tool-dictionary .search-input-wrapper input
+{
+    width: 13em;
+}
+.TDS_PS_L2 #tool-dictionary .search-input-wrapper input
+{
+    width: 13em;
+}
+.TDS_PS_L3 #tool-dictionary .search-input-wrapper input
+{
+    width: 12em;
+}
+.TDS_PS_L4 #tool-dictionary .search-input-wrapper input
+{
+    width: 11em;
+}
+
+/* Spanish Translation Specific CSS */
+#tool-dictionary .vtr
+{
+    padding: 0.2em 0;
+}
+#tool-dictionary #dictionary_btn
+{
+    display: none;
+}
+#tool-dictionary #spanish_btn
+{
+    display: none;
+}
+.TDS_SP_TL #tool-dictionary #spanish_btn
+{
+    display: inline-block;
+}
+/* End */

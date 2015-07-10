@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<!-- There is a more modern format given here http://www.javadocexamples.com/org/apache/commons/configuration/org.apache.commons.configuration.XMLConfiguration.html -->
+	<entry key="IsCheckinSite">false</entry>
+
+</properties>
