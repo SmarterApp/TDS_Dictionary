@@ -5,13 +5,13 @@
   <groupId>AIR.Dictionary</groupId>
   <artifactId>Dictionary</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <name>Dictionary</name>
 	
 	<parent>
 		<groupId>org.opentestsystem.shared</groupId>
 		<artifactId>shared-master</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.1-BUILD-SNAPSHOT</version>
 	</parent>
 	
 	<licenses>
@@ -43,11 +43,6 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-library</artifactId>
-			<version>2.10.4</version>
 		</dependency>
 		<dependency>
 		   <groupId>junit</groupId>
