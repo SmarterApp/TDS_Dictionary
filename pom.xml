@@ -58,6 +58,28 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
-		
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<scm>
+		<connection>scm:git:https://github.com/SmarterApp/TDS_Dictionary.git</connection>
+		<developerConnection>scm:git:git://github.com/SmarterApp/TDS_Dictionary.git</developerConnection>
+		<url>https://github.com/SmarterApp/TDS_Dictionary</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>airdev-releases</name>
+			<url>https://airdev.jfrog.io/airdev/libs-releases-local</url>
+		</repository>
+	</distributionManagement>
 </project>
