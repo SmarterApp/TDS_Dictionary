@@ -1,17 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <url>http://maven.apache.org</url>
-  <groupId>AIR.Dictionary</groupId>
-  <artifactId>Dictionary</artifactId>
+  <groupId>org.opentestsystem.delivery</groupId>
+  <artifactId>dictionary</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1</version>
-  <name>Dictionary</name>
+  <version>3.1.1.RELEASE</version>
+  <name>dictionary</name>
 	
 	<parent>
 		<groupId>org.opentestsystem.shared</groupId>
 		<artifactId>shared-master</artifactId>
-		<version>1.0.1</version>
+		<version>3.1.0.RELEASE</version>
 	</parent>
 	
 	<licenses>
@@ -23,8 +22,6 @@
 		</license>
 	</licenses>
 
-	
-	
 	<dependencies>
 		<dependency>
 			<groupId>org.opentestsystem.shared</groupId>
@@ -45,11 +42,6 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-library</artifactId>
-			<version>2.10.4</version>
-		</dependency>
-		<dependency>
 		   <groupId>junit</groupId>
 		   <artifactId>junit</artifactId>
 		   <scope>test</scope>
@@ -65,6 +57,28 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
-		
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<scm>
+		<connection>scm:git:https://github.com/SmarterApp/TDS_Dictionary.git</connection>
+		<developerConnection>scm:git:git://github.com/SmarterApp/TDS_Dictionary.git</developerConnection>
+		<url>https://github.com/SmarterApp/TDS_Dictionary</url>
+		<tag>3.1.1.RELEASE</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>airdev-releases</name>
+			<url>https://airdev.jfrog.io/airdev/libs-releases-local</url>
+		</repository>
+	</distributionManagement>
 </project>
