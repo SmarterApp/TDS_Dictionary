@@ -27,6 +27,12 @@
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
 
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/.name
+.idea/artifacts/**
+
 ## File-based project format:
 *.iws
 
@@ -50,7 +56,7 @@ fabric.properties
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-# *.iml
+*.iml
 # modules.xml
 
 
@@ -133,3 +139,6 @@ local.properties
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+.idea/**
+**/*.iml
