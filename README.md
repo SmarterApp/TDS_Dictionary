@@ -19,6 +19,10 @@ Web module contains all the UI and implementation logic required for calling the
 ## Setup
 In general, build the code and deploy the WAR file.
 
+If the TDS_Student application is deployed using SSL/HTTPS, the webserver hosting the dictionary web application will also need to be secured. 
+For security reasons, modern browsers now disable mixed active content by default, meaning that a secured web application cannot include 
+non-secured content or make certain non-secured requests.
+
 ### Tomcat Configuration (Environment Variables)
 The following parameters need to be set inside of the Tomcat server's context.xml on the Dictionary server:
 ```
