@@ -4,13 +4,13 @@
   <groupId>org.opentestsystem.delivery</groupId>
   <artifactId>dictionary</artifactId>
   <packaging>war</packaging>
-  <version>3.1.1.RELEASE</version>
+  <version>3.2.0.RELEASE</version>
   <name>dictionary</name>
 	
 	<parent>
 		<groupId>org.opentestsystem.shared</groupId>
 		<artifactId>shared-master</artifactId>
-		<version>3.1.0.RELEASE</version>
+		<version>4.0.6.RELEASE</version>
 	</parent>
 	
 	<licenses>
@@ -71,14 +71,14 @@
 		<connection>scm:git:https://github.com/SmarterApp/TDS_Dictionary.git</connection>
 		<developerConnection>scm:git:git://github.com/SmarterApp/TDS_Dictionary.git</developerConnection>
 		<url>https://github.com/SmarterApp/TDS_Dictionary</url>
-		<tag>3.1.1.RELEASE</tag>
+		<tag>3.2.0.RELEASE</tag>
 	</scm>
 
 	<distributionManagement>
 		<repository>
 			<id>central</id>
 			<name>airdev-releases</name>
-			<url>https://airdev.jfrog.io/airdev/libs-releases-local</url>
+			<url>https://artifactory.smarterbalanced.org/artifactory/libs-releases-local</url>
 		</repository>
 	</distributionManagement>
 </project>
